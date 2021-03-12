@@ -1,0 +1,25 @@
+<%- include('includes/head.ejs') %>
+    <!-- <link rel="stylesheet" href="/css/product.css"> -->
+    </head>
+
+    <body>
+        <%- include('includes/navigation.ejs') %>
+
+            <main class="w3-row-padding w3-margin-top">
+                <div class="w3-third">
+                    <div class="w3-card"">
+                        <img src=" <%=product.image_path %>" alt=" ">
+                        <div class="w3-container">
+                            <h4> Product ID:<%= prods.product_id%>
+                            </h4>
+                            <p> Product Name:<%= prods.product_name %>
+                            </p>
+                            <h2>Price:$<%= prods.price %>
+                            </h2>
+                            <p>Description:<%= prods.detail %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <%- include('includes/end.ejs') %>
