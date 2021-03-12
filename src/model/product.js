@@ -1,5 +1,4 @@
-const path = require('product');
-module.exports = path.dirname(process.mainModule.filename);
+
 product =[{
     "product_id":"001",
     "product_name":"ลูกสุนัขลาซาแอปโซ่",
@@ -72,3 +71,5 @@ product =[{
 },
 
 ]
+
+module.exports = product;

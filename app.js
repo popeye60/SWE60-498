@@ -6,15 +6,16 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.set('view engine', 'ejs');
-app.set('view', 'view');
+app.set('views', 'views');
 
-const routesData = require('./routes/showProduct');
+const showData = require('./src/routes/showProduct');
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', showProduct.routes);
-app.use(shopRoutes);
+app.use(showData);
+// app.use(detailRoutes);
 
 app.use((req, res, next) => {
   res.status(404).render('404', { pageTitle: 'Page Not Found' });

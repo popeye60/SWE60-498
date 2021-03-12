@@ -6,24 +6,21 @@ const rootDir = require('../model/product');
 
 const router = express.Router();
 
-const products = [];
+// const products = [];
 
 // /admin/add-product => GET
 router.get('/', (req, res, next) => {
+  console.log('dd');
+  const products = rootDir;
+  console.log(products);
   res.render('layout', {
-    // pageTitle: 'Add Product',
-    path: '/view/layout',
-    formsCSS: true,
-    productCSS: true,
-    activeAddProduct: true
+    prods: products,
+    pageTitle: 'Shop',
+    path: '/',
+    hasProducts: products.length > 0,
+    activeShop: true,
+    productCSS: true
   });
 });
 
-// /admin/add-product => POST
-router.post('../view/layout', (req, res, next) => {
-  products.push({ });
-  res.redirect('/');
-});
-
-exports.routes = router;
-exports.products = products;
+module.exports = router;
