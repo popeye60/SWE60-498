@@ -5,23 +5,29 @@
     <body>
         <%- include('includes/navigation.ejs') %>
 
-            <main class="w3-row-padding w3-margin-top">
+            <main class="w3-row-padding">
                 <% if (prods.length> 0) { %>
-                    <div class="w3-third" id="1">
+                    <div class="w3-third w3-margin-bottom" id="1">
                         <% for (let product of prods) { %>
                             <div class="w3-card">
-                                <img src="<%= product.image_path %>" alt="img" style="width:100%">
-                                <h4 class="w3-container">
-                                    <%= product.product_name %>
-                                </h4>
-                                <p>
-                                    $<%= product.price %>
-                                </p>
-                                <form method="get" action="/detail">
-                                    <input type="hidden" id="product_id" name="product_id"
-                                        value="<%= product.product_id %>">
-                                    <button id="<%= product.product_id %>" class="btn" type="submit">Detail</button>
-                                </form>
+                                <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+                                    <img src="<%= product.image_path %>" alt="img" style="width:100%">
+                                    <h4 class="w3-container">
+                                        <%= product.product_name %>
+                                    </h4>
+                                    <h2 class="w3-wide">
+                                        $<%= product.price %>
+                                    </h2>
+                                    <span class="w3-opacity">บาท</span>
+                                    <div class="w3-light-grey w3-padding-24">
+                                        <form method="get" action="/detail">
+                                            <input type="hidden" id="product_id" name="product_id"
+                                                value="<%= product.product_id %>">
+                                            <button class="w3-button w3-green w3-padding-large"
+                                                id="<%= product.product_id %>" type="submit">Detail</button>
+                                        </form>
+                                    </div>
+                                </ul>
                             </div>
                             <% } %>
                     </div>
