@@ -1,19 +1,23 @@
-const path = require('product');
+const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
 
-const Routes = require('./src/routes/routes');
+app.set('view engine', 'ejs');
+app.set('view', 'view');
+
+const routesData = require('./routes/showProduct');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/',Routes);
+app.use('/', showProduct.routes);
+app.use(shopRoutes);
 
 app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, 'view', '404.html'));
+  res.status(404).render('404', { pageTitle: 'Page Not Found' });
 });
 
 app.listen(3000);
