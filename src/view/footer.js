@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+import React from 'react';
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
+class footer extends React.Component {
+    render() {
+        return (
+            <>
 
     <footer class="footer spad">
         <div class="container">
@@ -74,7 +69,6 @@
                                 <script>document.write(new Date().getFullYear());</script> All rights reserved | This
                                 template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
                                     href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
                         </div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt="" /></div>
@@ -83,6 +77,8 @@
             </div>
         </div>
     </footer>
-</body>
-
-</html>
+    </>
+        )
+    }
+}
+export default footer;
