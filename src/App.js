@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+const path = require('product');
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const express = require('express');
+const bodyParser = require('body-parser');
 
-export default App;
+const app = express();
+
+const Routes = require('./routes/routes');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/',Routes);
+
+app.use((req, res, next) => {
+    res.status(404).sendFile(path.join(__dirname, 'view', '404.html'));
+});
+
+app.listen(3000);
